@@ -10,17 +10,44 @@ The package is tested on Arduino Uno compatible & Asus Tinker board(Raspiberry P
 
 ・MPU-6050 GY521
 
-・DFRobot Romeo mini v1.1(or Arduino UNO compatible etc)
+・Arduino UNO
 
-・ROS kinetic(or melodic)
+・ROS Noetic
 
-・Ubuntu 18.04 Tinker board(or Raspiberry Pi, PC etc)
+・Ubuntu 20.04
+
+# Wiring
+<img src="assets/wiring.png" alt="Sensor wiring" width="600"/>
+
+
+# Installing
+```bash
+$sudo apt-get update
+$sudo apt-get install ros-noetic-rosserial-arduino
+$sudo apt-get install ros-noetic-serial
+$cd ~catkin_ws/src/
+$git clone -b noetic https://github.com/ccny-ros-pkg/imu_tools
+$cd ..
+$catkin_make --pkg imu_tools
+
+
+$cd ~/catkin_ws/src/
+$git clone https://github.com/soarbear/mpu6050_imu_ros.git
+$cd ~/catkin_ws/
+$catkin_make
+
+
+$sudo ls -l /dev/ttyACM*
+$sudo chmod +x /dev/ttyACM0
+$roslaunch mpu6050_imu_driver mpu6050_imu.launch
+```
 
 # Demo
-
+```bash
 $roslaunch mpu6050_imu_driver mpu6050_imu.launch
+```
 
-Video on youtube -> https://youtu.be/h508BTedKtk
+<img src="assets/IMG-4115.gif" alt="Demo" width="600"/>
 
 # Explanation
 
